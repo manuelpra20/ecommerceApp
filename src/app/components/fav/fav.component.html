@@ -1,0 +1,65 @@
+<div class="altura"> 
+    
+    <ng-container *ngIf="products.length != 0">
+        <h5 class="card-title">Favoritos:</h5>
+            <table class="table table-responsive table-bordered tabled">
+                <thead>
+                    <tr>
+                        <th>Nombre del producto</th>
+                        <th>Imagen del producto</th>
+                        <th>Descripción</th>
+                        <th>Precio</th>
+                        <th class="thspace">Action</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr  *ngFor="let item of products; let i = index" >
+                        <td> {{ item.title }}  </td>
+                        <td><img class="tamanio" src="{{ item.image }}" alt=""></td>
+                        <td class="thspacer"> {{ item.description }} </td>
+                        <td class="thspace"> $ {{item.price}}  </td>
+                        <td>
+                            <button (click)="removerItem(item)" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>
+                        </td>
+                    
+                    </tr>
+                    <tr >
+                        <td colspan="4"></td>
+                        <td><button (click)="emtyfav()" class="btn btn-danger">Vaciar Favoritos</button></td>
+                        <td class="tdespacio"><button routerLink="/products" class="btn btn-primary">Ir a Home</button></td>
+                        
+                    </tr>
+                
+                </tbody>
+            </table>
+        
+    </ng-container>
+
+    <br>
+    <br>
+
+    <ng-container *ngIf="products.length == 0">
+
+        <div class="card container centrar">
+            
+            <div class="center">
+                
+                <div class="card-body">
+                    <h5 class="card-title">Favoritos</h5>
+                </div>
+               
+                <h4 >¡La lista de Favoritos esta vacía!</h4>
+                <h6>Agrega aquí los productos que te gustaron para poder verlos más tarde.</h6>
+                <button  routerLink="/products" class="btn btn-primary ">Ir a Home</button>
+        
+            </div>
+        </div>
+
+    </ng-container>
+
+
+
+</div>
+<br>
+<br>

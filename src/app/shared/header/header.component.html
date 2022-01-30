@@ -1,0 +1,58 @@
+
+
+<nav class="navbar navbar-expand-lg bg-dark fixed-top navbar-dark">
+
+    <div class="container-fluid">
+
+      <i routerLink="products" class="colorb fas fa-warehouse idetail"></i>   
+
+      <strong class="navbar-brand estilo colorb" routerLink="products">MPStore</strong>
+
+      <button class="btnheader  navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        
+        <form style="margin-left: -20px;" class="d-flex">
+            <input [(ngModel)]="searchTerm" (keyup)="search($event)" class="inputb form-control me-2" type="search" placeholder="Buscar Productos" aria-label="Search">
+        </form>
+
+        <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+
+            <li class="nav-item lidetail">
+                
+                    <div class="form-check form-switch mt-2" style="margin-left: 20px;">
+                        <input (click)="switchTheme()" class="form-check-input inputbord" type="checkbox" id="flexSwitchCheckChecked">
+                        <label  class="form-check-label toggle textb" for="flexSwitchCheckChecked">{{ theme === 'light-theme' ? 'Modo Oscuro' : 'Modo Claro' }}</label>
+                    </div>
+                    
+            </li>
+
+            <li class="nav-item" style="margin-right: 5px;">
+              <a class="nav-link active" aria-current="page" >
+                  <button routerLink="fav"  class="btn btnb btni">
+                      <i style="font-size: 30px;" class="colorb fas fa-heart"></i>
+                  </button>  Favoritos
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link active" >
+                  <button routerLink="cart" class=" btn btnb btni">
+                      <i style="font-size: 30px;" class="fas fa-cart-plus"></i>
+                      <div style="font-size: 10px;" class="badge bg-danger">{{ totalItem }}</div>
+                  </button>  Carrito
+              </a>
+            </li>
+          
+        </ul>
+
+      </div>
+
+    </div>
+</nav>
+
+<br>
+<br>
+

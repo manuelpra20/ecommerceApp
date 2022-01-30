@@ -1,0 +1,81 @@
+
+
+<div class="card-top container-fluid altura wmode">
+
+    <div class="centrar d-flex">
+        <div class="item animate__animated animate__fadeInLeft ">
+            <a (click)="filter('')">
+                <img src="https://rukminim1.flixcart.com/flap/128/128/image/f15c02bfeb02d15d.png?q=100" >
+            </a>
+            <h6 class="textb colorb" (click)="filter('')">Todos los productos</h6>
+        </div>
+        <div class="item animate__animated animate__fadeInLeft">
+            <a (click)="filter('electronics')">
+                <img  src="https://rukminim1.flixcart.com/flap/128/128/image/69c6589653afdb9a.png?q=100" >
+            </a>
+            <h6 class="textb colorb" (click)="filter('electronics')">Electrónica</h6>
+        </div>
+        <div class="item animate__animated animate__fadeInLeft">
+            <a (click)="filter('fashion')">
+                <img src="https://rukminim1.flixcart.com/flap/128/128/image/82b3ca5fb2301045.png?q=100" >
+            </a>
+            <h6 class="textb colorb" (click)="filter('fashion')">Moda</h6>  
+        </div>
+        <div class="item animate__animated animate__fadeInLeft">
+            <a (click)="filter('jewelery')">
+                <img class="tamanio" src="assets/joyas-removebg-preview.png" alt="">
+            </a>
+            <h6 class="textb colorb" (click)="filter('jewelery')">Joyería</h6>
+        </div>
+    </div>
+
+</div>
+
+<br>
+
+<div class="container">
+
+    <div class="row">
+
+        <div class="col-md-4" *ngFor="let item of filterCategory | filter:searchKey:'title'">
+                
+            <ng-container >
+                  <div class="card animate__animated animate__pulse">
+                    <img src="{{ item.image }}" alt="">
+                    <h5 style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 100ch;"> 
+                        {{ item.title }} 
+                    </h5>
+                    <p style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 100ch;"> 
+                        {{ item.description }} 
+                    </p>
+
+                    <p> 
+                        <strong>Categoria:</strong> {{item.category | uppercase}} 
+                    </p>
+                    <p> 
+                        <strong>Precio:</strong>${{item.price}} 
+                    </p>
+
+
+                    <div class="card-body">
+                        <button style="font-size: 26px ;" class="btn btn-dark btnedit" (click)="addtocart(item)">
+                            Añadir al carrito
+                        </button>
+                        <a (click)="addtofav(item)" class="heart"><i class="far fa-heart icored iblack"></i></a>  
+                    </div>
+
+                  </div>
+                
+            </ng-container>
+
+        </div>
+
+       
+    </div>
+    
+</div>
+
+<br>
+<br>
+
+
